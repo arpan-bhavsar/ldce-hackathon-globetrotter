@@ -6,6 +6,7 @@ import Itinerary from './pages/Itinerary';
 import Budget from './pages/Budget';
 import Community from './pages/Community';
 import Explore from './pages/Explore';
+import Landing from './pages/Landing';  
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/budget" element={<Budget />} />
         <Route path="/community" element={<Community />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/" element={<Landing />} />
         
       </Routes>
     </BrowserRouter>
