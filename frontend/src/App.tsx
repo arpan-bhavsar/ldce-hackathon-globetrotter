@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import Itinerary from './pages/Itinerary';
 import Budget from './pages/Budget';
 import Community from './pages/Community';
+import Explore from './pages/Explore';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Route path="/itinerary" element={<Itinerary />} />
         <Route path="/budget" element={<Budget />} />
         <Route path="/community" element={<Community />} />
+        <Route path="/explore" element={<Explore />} />
       </Routes>
     </BrowserRouter>
   );
