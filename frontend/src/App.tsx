@@ -17,7 +17,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
         <Route path="/itinerary" element={<Itinerary />} />
-        <Route path="/budget" element={<Budget />} />
+        <Route path="/budget/:id" element={<Budget />} />
         <Route path="/community" element={<Community />} />
         <Route path="/explore" element={<Explore />} />
       </Routes>
