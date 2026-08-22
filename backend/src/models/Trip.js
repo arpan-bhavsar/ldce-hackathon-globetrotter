@@ -9,4 +9,9 @@ const tripSchema = new mongoose.Schema({
   status: { type: String, default: "Upcoming" } // Ongoing, Upcoming, Completed
 }, { timestamps: true });
 
+const { getTripDetails, addActivity } = require('../controllers/tripController'); // Make sure to add these to the import at the top!
+
+router.get('/:id', getTripDetails);
+router.post('/:id/activities', addActivity);
+
 module.exports = mongoose.model('Trip', tripSchema);
