@@ -20,6 +20,7 @@ function App() {
         <Route path="/budget" element={<Budget />} />
         <Route path="/community" element={<Community />} />
         <Route path="/explore" element={<Explore />} />
+        
       </Routes>
     </BrowserRouter>
   );

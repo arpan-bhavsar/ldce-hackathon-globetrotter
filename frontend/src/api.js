@@ -17,6 +17,5 @@ export const registerUser = (formData) => API.post('/auth/register', formData);
 export const fetchTrips = () => API.get('/trips');
 export const fetchPosts = () => API.get('/posts');
 export const createPost = (newPost) => API.post('/posts', newPost);
-export const createTrip = (newTrip) => API.post('/trips', newTrip);
-export const fetchTripDetails = (id) => API.get(`/trips/${id}`);
-export const addActivityToTrip = (id, activityData) => API.post(`/trips/${id}/activities`, activityData);
+export const fetchTripDetails = (id) => API.get(/trips/${id});
+export const addActivityToTrip = (id, activityData) => API.post(/trips/${id}/activities, activityData);
