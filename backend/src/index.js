@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI  'mongodb://localhost:27017/globetrotter')
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/globetrotter')
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
@@ -18,6 +18,6 @@ mongoose.connect(process.env.MONGO_URI  'mongodb://localhost:27017/globetrotter'
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/trips', require('./routes/trips'));
 
-const PORT = process.env.PORT 
- 3001;
-app.listen(PORT, () => console.log(Server running on port ${PORT}));
+const PORT = process.env.PORT
+3001;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
