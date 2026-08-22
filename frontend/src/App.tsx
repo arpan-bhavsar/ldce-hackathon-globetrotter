@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import Itinerary from './pages/Itinerary';
+import Explore from './pages/Explore';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
         <Route path="/itinerary" element={<Itinerary />} />
+        <Route path="/explorer" element={<Explorer/>} />
       </Routes>
     </BrowserRouter>
   );
