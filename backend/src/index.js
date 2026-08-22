@@ -19,6 +19,6 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/globetrotte
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/trips', require('./routes/trips'));
 
-const PORT = process.env.PORT
-3001;
+//const PORT = process.env.PORT
+const PORT = 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

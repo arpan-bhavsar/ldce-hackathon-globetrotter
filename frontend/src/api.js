@@ -7,7 +7,7 @@ const API = axios.create({ baseURL: 'http://localhost:3001/api' });
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem('token');
   if (token) {
-    req.headers.Authorization = Bearer ${token};
+    req.headers.Authorization = `Bearer ${token}`;
   }
   return req;
 });
@@ -17,3 +17,6 @@ export const registerUser = (formData) => API.post('/auth/register', formData);
 export const fetchTrips = () => API.get('/trips');
 export const fetchPosts = () => API.get('/posts');
 export const createPost = (newPost) => API.post('/posts', newPost);
+export const createTrip = (newTrip) => API.post('/trips', newTrip);
+export const fetchTripDetails = (id) => API.get(`/trips/${id}`);
+export const addActivityToTrip = (id, activityData) => API.post(`/trips/${id}/activities`, activityData);
