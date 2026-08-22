@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { fetchTripDetails, addActivityToTrip } from '../api';
 
 export default function Itinerary() {
-  const { id } = useParams(); // Gets the trip ID from the URL
+  const { id } = useParams();
   const [trip, setTrip] = useState<any>(null);
   
   const [activity, setActivity] = useState({ 
@@ -29,12 +29,10 @@ export default function Itinerary() {
     
     try {
       await addActivityToTrip(id, { ...activity, cost: Number(activity.cost) || 0 });
-      // Clear the form
       setActivity({ date: '', time: '', name: '', cost: '', notes: '' });
-      // Reload the data to show the new activity
       loadTrip(); 
     } catch (err) {
-      alert("Failed to add activity. Make sure your date format is correct.");
+      alert("Failed to add activity.");
     }
   };
 
@@ -42,10 +40,12 @@ export default function Itinerary() {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
-      {/* Top Navbar */}
       <nav className="bg-sky-600 text-white p-4 shadow-md flex justify-between items-center">
         <Link to="/home" className="text-2xl font-bold hover:opacity-80">Globe Trotter</Link>
-        <div className="font-medium text-lg">{trip.title}</div>
+        <div className="space-x-6 font-medium flex items-center">
+          <span className="text-sky-200 mr-4 font-normal tracking-wide">{trip.title}</span>
+          <Link to={`/budget/${id}`} className="hover:underline text-white">Budget</Link>
+        </div>
       </nav>
 
       <div className="flex-1 max-w-7xl w-full mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -82,13 +82,25 @@ export default function Itinerary() {
 
         {/* Right Section: Timeline View */}
         <div className="md:col-span-2 space-y-6">
+          
+          {/* ✨ THE WOW FACTOR: LIVE INTERACTIVE MAP ✨ */}
+          <div className="bg-white p-2 rounded-xl shadow-sm border border-slate-200">
+            <iframe 
+              width="100%" 
+              height="300" 
+              style={{ border: 0, borderRadius: '0.5rem' }}
+              loading="lazy"
+              allowFullScreen
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(trip.destination)}&t=&z=12&ie=UTF8&iwloc=&output=embed`}
+            ></iframe>
+          </div>
+
           {trip.itinerary?.length === 0 && (
             <div className="bg-white p-12 text-center rounded-xl shadow-sm border border-slate-200 text-slate-500 text-lg">
               No activities planned yet. Use the form on the left to start building your day!
             </div>
           )}
 
-          {/* Loop through each day and its activities */}
           {trip.itinerary?.map((day: any, i: number) => (
             <div key={i} className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
               <div className="flex justify-between items-end border-b pb-4 mb-6">
