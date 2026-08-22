@@ -16,6 +16,7 @@ mongoose.connect(process.env.MONGO_URI  'mongodb://localhost:27017/globetrotter'
 
 // Routes will go here
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/trips', require('./routes/trips'));
 
 const PORT = process.env.PORT 
  3001;
