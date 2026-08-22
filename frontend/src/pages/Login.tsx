@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../api';
+import toast from 'react-hot-toast';
 
 export default function Login() {
     const navigate = useNavigate();
@@ -16,10 +17,16 @@ export default function Login() {
             const res = await loginUser(formData);
             // Save the login token to the browser!
             localStorage.setItem('token', res.data.token);
-            alert("Login successful!");
-            navigate('/home'); // Send them to the dashboard
+            toast.success("Login successful!");
+            
+            // Redirect admin to admin panel, regular users to home
+            if (res.data.user.isAdmin || res.data.user.email === 'admin@globetrotter.app') {
+                navigate('/admin');
+            } else {
+                navigate('/home');
+            }
         } catch (error) {
-            alert("Invalid email or password. Please try again.");
+            toast.error("Invalid email or password. Please try again.");
         }
     };
 

@@ -67,3 +67,14 @@ exports.addActivity = async (req, res) => {
     res.status(500).json({ error: true, message: "Error adding activity" });
   }
 };
+
+// Delete a trip
+exports.deleteTrip = async (req, res) => {
+  try {
+    const trip = await Trip.findByIdAndDelete(req.params.id);
+    if (!trip) return res.status(404).json({ error: true, message: "Trip not found" });
+    res.status(200).json({ error: false, message: "Trip deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: true, message: "Error deleting trip" });
+  }
+};

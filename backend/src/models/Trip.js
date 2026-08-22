@@ -19,6 +19,7 @@ const tripSchema = new mongoose.Schema({
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
   destination: { type: String, required: true },
+  country: { type: String, default: '' },
   status: { type: String, default: "Upcoming" },
   itinerary: [itineraryDaySchema] // This holds the day-by-day plans!
 }, { timestamps: true });

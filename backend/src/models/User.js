@@ -7,8 +7,10 @@ const userSchema = new mongoose.Schema({
   phone: String,
   city: String,
   country: String,
+  additionalInfo: String,
   password: { type: String, required: true },
-  photoUrl: String
+  photoUrl: String,
+  isAdmin: { type: Boolean, default: false }
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
