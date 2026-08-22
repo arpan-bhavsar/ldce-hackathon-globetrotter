@@ -45,10 +45,7 @@ export default function Itinerary() {
       {/* Top Navbar */}
       <nav className="bg-sky-600 text-white p-4 shadow-md flex justify-between items-center">
         <Link to="/home" className="text-2xl font-bold hover:opacity-80">Globe Trotter</Link>
-        <div className="space-x-6 font-medium flex items-center">
-          <span className="text-sky-200 mr-4 font-normal tracking-wide">{trip.title}</span>
-          <Link to={`/budget/${id}`} className="hover:underline text-white">Budget</Link>
-        </div>
+        <div className="font-medium text-lg">{trip.title}</div>
       </nav>
 
       <div className="flex-1 max-w-7xl w-full mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">

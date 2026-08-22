@@ -16,10 +16,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/itinerary" element={<Itinerary />} />
-        <Route path="/budget/:id" element={<Budget />} />
+        <Route path="/itinerary/:id" element={<Itinerary />} />
+        <Route path="/budget" element={<Budget />} />
         <Route path="/community" element={<Community />} />
         <Route path="/explore" element={<Explore />} />
+        
       </Routes>
     </BrowserRouter>
   );
