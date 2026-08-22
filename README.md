@@ -24,6 +24,7 @@ Open a terminal and navigate to the backend directory:
 cd backend
 npm install
 node src/index.js
+```
 
 ### 2. Start the Frontend
 Open a second terminal and navigate to the frontend directory:
@@ -31,5 +32,6 @@ Open a second terminal and navigate to the frontend directory:
 cd frontend
 npm install
 npm run dev
+```
 
 The app will be running at http://localhost:5173
